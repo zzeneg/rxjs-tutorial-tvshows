@@ -1,0 +1,35 @@
+<div class="shows">
+  <h1>Popular Shows</h1>
+
+  <div class="networks">
+    <ng-container *ngFor="let network of networks">
+      <div (click)="onNetworkSelect(network)" class="network" [class.selected]="network === selectedNetwork">{{network}}
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="shows" class="table-wrapper">
+    <table>
+      <thead>
+        <ng-container *ngFor="let header of headers">
+          <th (click)="onSort(header)" [class.sorted]="header === sortingProperty">{{header}}</th>
+        </ng-container>
+      </thead>
+      <tr *ngFor="let show of shows">
+        <td class="title" (click)="onShowSelect(show)">{{show.title}}</td>
+        <td>{{show.year}}</td>
+        <td>{{show.network}}</td>
+        <td>{{show.status}}</td>
+        <td>{{show.rating | number: '0.1-1'}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="selectedShow" class="selected-show">
+    <div class="content-wrapper">
+      <h2>{{selectedShow.title}}</h2>
+      <div>{{selectedShow.overview}}</div>
+    </div>
+    <img [src]="selectedShow.posterSrc">
+  </div>
+</div>
