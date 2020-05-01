@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShowsComponent } from './components/shows/shows.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShowsRxjsComponent } from './components/shows-rxjs/shows-rxjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowsComponent,
+    ShowsRxjsComponent
   ],
   imports: [
     BrowserModule,
